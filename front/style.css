@@ -1,0 +1,81 @@
+
+body{
+    background-color:white;
+    
+}
+
+.main-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color:dodgerblue;
+    width: 100%;
+    height: 25px;
+}  
+
+.main-body{
+    background-color:azure;
+    width: 100%;
+}
+
+.cont-welcome{
+    display: flex; 
+    flex-direction: column;
+    justify-content: end;
+    background-image: url("/front/assets/img/new_home.jpg");
+    background-position: center;
+    color: white;
+    width: 100%;
+    height: 300px;
+}
+.back-grey{
+    background-color: rgba(128, 128, 128, 0.7);
+    border-radius: 0px 0px 20px 20px;
+}
+
+.cont-card{
+    display: flex;
+    gap: 20px;
+}
+
+.main-card{
+    height: 240px;
+    width: 240px;
+    gap: 10px;
+    background-color: dodgerblue;
+}
+.card-img{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+.main-footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color:dodgerblue;
+    width: 100%;
+    height: 25px;
+}  
+
+
+.b-20{
+    border-radius: 20px;
+} 
+.img-15{
+    height: 15px;
+    width: 15px;
+}
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
