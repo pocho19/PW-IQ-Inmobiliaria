@@ -62,17 +62,6 @@ function App() {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/sales">
-              <Route exact={true} path={'/sales/detail/:id'}>
-                <SaleDetail states={states}/>
-              </Route>
-              <Route exact={true} path={'/sales'}>
-                <Sales states={states}/>
-              </Route>
-            </Route>
-            <Route exact={true} path="/rentals">
-            <Rentals />
-            </Route>
             <Route exact={true} path="/users">
             <Users />
             </Route>
@@ -85,6 +74,15 @@ function App() {
             <AuthRoute exact={true} path="/about">
             <About />
             </AuthRoute>
+            <Route exact={true} path={'/sales/detail/:id'}>
+              <SaleDetail states={states}/>
+            </Route>
+            <Route exact={true} path={'/sales'}>
+              <Sales states={states}/>
+            </Route>
+            <Route exact={true} path="/rentals">
+            <Rentals />
+            </Route>
             <Route exact={true} path="/">
               <Home />
             </Route>
