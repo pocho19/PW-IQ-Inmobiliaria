@@ -1,7 +1,7 @@
 import { Route, Redirect } from "react-router-dom";
 
 const AuthRoute = ({children, ...props}) => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <Route

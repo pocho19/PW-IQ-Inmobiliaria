@@ -7,19 +7,20 @@ import default_img from './default_house.png'
 //import default_img from './../../assets/images/default_house.png';
 //import default_img from './../assests/images/default_house.png';
 ///assests/images/default_house.png app-iq\src\assests\images\default_house.png
-const Sales = () => {
+const Sales = ({states}) => {
+    console.log("states",states);
     const [filtered, setFiltered] = useState(false);
     const stateTypes = [ 'Casa', 'Departamento', 'Negocio', 'Oficina', 'Terreno' ] 
     const [filterType, setFilterType] = useState(stateTypes[0]);
     const descriptionEx = "Texto Ejemplo de descripción. Ubicada en el barrio Antartida Argentina ( fisherton sur) a metros de Av. Mendoza a la altura del 7900.Patio delantero en el ingreso parquizado , cochera pasante. La casa se desarrolla practicamente toda en planta baja. Living con entrepiso de madera, cocina comedor, lavadero independiente y dos dormitorios orientados al norte con ventilacion hacia el jardin del inmueble.";
-    const states = [
-        { location:'Rosario', description:descriptionEx, name: 'Casa A', price: 150000, img: default_img, type: 'Casa' },
-        { location:'Rosario', description:descriptionEx, name: 'Casa B', price: 110000, img: default_img, type: 'Casa' },
-        { location:'Rosario', description:descriptionEx, name: 'Casa C', price: 200000, img: default_img, type: 'Casa' },
-        { location:'Rosario', description:descriptionEx, name: 'Depto A', price: 90000, img: default_img, type: 'Departamento' },
-        { location:'Rosario', description:descriptionEx, name: 'Depto B', price: 60000, img: default_img, type: 'Departamento' },
-        { location:'Rosario', description:descriptionEx, name: 'Depto C', price: 50000, img: default_img, type: 'Departamento' },
-        { location:'Rosario', description:descriptionEx, name: 'Terreno', price: 25000, img: default_img, type: 'Terreno' },
+    const statesB = [
+        { id:0, location:'Rosario', description:descriptionEx, name: 'Casa A', price: 150000, img: default_img, type: 'Casa' },
+        { id:1, location:'Rosario', description:descriptionEx, name: 'Casa B', price: 110000, img: default_img, type: 'Casa' },
+        { id:2, location:'Rosario', description:descriptionEx, name: 'Casa C', price: 200000, img: default_img, type: 'Casa' },
+        { id:3, location:'Rosario', description:descriptionEx, name: 'Depto A', price: 90000, img: default_img, type: 'Departamento' },
+        { id:4, location:'Rosario', description:descriptionEx, name: 'Depto B', price: 60000, img: default_img, type: 'Departamento' },
+        { id:5, location:'Rosario', description:descriptionEx, name: 'Depto C', price: 50000, img: default_img, type: 'Departamento' },
+        { id:6, location:'Rosario', description:descriptionEx, name: 'Terreno', price: 25000, img: default_img, type: 'Terreno' },
     ]
     let finalStates = states
     function filterT(type){
