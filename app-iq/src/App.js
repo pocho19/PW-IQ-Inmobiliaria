@@ -1,91 +1,88 @@
 //import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import default_img from './assests/images/default_house.png'
 import {useState} from 'react';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
+import Sales from './components/Sales/Sales';
+import Profile from './components/Users/Profile';
+import Users from './components/Users/Users';
+import Rentals from './components/Rentals';
+import Home from './components/Home';
+import NavBar from './components/NavBar/Navbar';
+import LoginScreen from './components/Users/Login';
+import About from "./components/About";
+import SaleDetail from "./components/Sales/SaleDetail";
 
 function App() {
+  
+  const descriptionEx = "Texto Ejemplo de descripción. Ubicada en el barrio Antartida Argentina ( fisherton sur) a metros de Av. Mendoza a la altura del 7900.Patio delantero en el ingreso parquizado , cochera pasante. La casa se desarrolla practicamente toda en planta baja. Living con entrepiso de madera, cocina comedor, lavadero independiente y dos dormitorios orientados al norte con ventilacion hacia el jardin del inmueble.";
+  const state = { location:'Rosario', description:descriptionEx, name: 'Casa A', price: 150000, img: 'IMAGENN', type: 'Casa' };
+    return (<Router>
+        <div>
+          {/* <nav>
+            <ul>
+              <li>
+                <Link to="/">Inicio</Link>
+              </li>
+              <li>
+                <Link to="/sales">Ventas</Link>
+                </li>
+                <li>
+                <Link to="/rentals">Alquiler</Link>
+                </li>
+                <li>
+                <Link to="/users">Usuarios</Link>
+                </li>
+                <li>  
+                <Link to="/profile">Perfil</Link>
+                </li>
+                <li>
+                <Link to="/about">Nosotros</Link>
+                </li>
+            </ul>
+          </nav> */}
+          <NavBar />
 
-    const [filtered, setFiltered] = useState(false);
-    const stateTypes = [ 'Casa', 'Departamento', 'Negocio', 'Oficina', 'Terreno' ]
-    const [filterType, setFilterType] = useState(stateTypes[0]);
-    const states = [
-        { name: 'Casa A', price: 150000, img: default_img, type: 'Casa' },
-        { name: 'Casa B', price: 110000, img: default_img, type: 'Casa' },
-        { name: 'Casa C', price: 200000, img: default_img, type: 'Casa' },
-        { name: 'Depto A', price: 90000, img: default_img, type: 'Departamento' },
-        { name: 'Depto B', price: 60000, img: default_img, type: 'Departamento' },
-        { name: 'Depto C', price: 50000, img: default_img, type: 'Departamento' },
-        { name: 'Terreno', price: 25000, img: default_img, type: 'Terreno' },
-    ]
-    let finalStates = states
-    function filterT(type){
-        return states.filter(state => state.type === type)
-    }
-    if(filtered){
-        finalStates = filterT(filterType)
-    }else{
-        finalStates = states;
-    }
-    
-    return (
-        <div className="App">
-            <div className="navbar">
-                <h4 className="navbar-element">Inicio</h4>
-                <h4 className="navbar-element">Venta</h4>
-                <h4 className="navbar-element">Alquiler</h4>
-                <h4 className="navbar-element">Contacto</h4>
-            </div>
-            <div className="main-div">
-                <h2 className="main-title">Garcia & Casanova Inmobiliaria</h2>
-                <p className="main-description">
-                Listado de propiedades a la venta
-                </p>
-            </div>
-            <div className="main-div">
-                
-                {!filtered && <button className="btn btn-primary" onClick={()=>setFiltered(true)}>Filtrar</button>}
-                {filtered && <button className="btn btn-primary" onClick={()=>setFiltered(false)}>Dejar de Filtrar</button>}
-                {!filtered && <div className="filter-div">
-                    <select className="select-type" defaultValue={filterType} onChange={
-                        (e)=>{
-                            setFilterType(e.target.value)
-                        }
-                    }>
-                    {stateTypes.map((type)=>{
-                        return <option value={type}>{type}</option>
-                    }
-                    )}
-                    </select>
-                </div>
-                }
-                {filtered && <h5 className="filter-description">Filtrado por: {filterType}</h5>}
-            </div>
-            <div className="all-cards">
-                {
-                finalStates
-                //.filter((state) => filtered?state.type === filterType:true)
-                .map(
-                    (state) =>
-                    <div className="card-conteiner" >
-                        <div className="card">
-                            <img src={state.img} className="card-img-top" alt="..."/>
-                            <div className="card-body">
-                                <h4 className="card-title">{state.name}</h4>
-                                <p className="card-text">
-                                    Este es un ejemplo de la descripcion de la propiedad en venta
-                                </p>
-                                <p className="card-text">
-                                    <small className="">Precio: U$D {state.price}</small>
-                                </p>
-                                <a href="#" className="btn btn-primary">Comprar</a>
-                            </div>
-                        </div>
-                    </div>
-                )
-                }
-            </div>
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/sales">
+              <Route exact={true} path={'/sales/detail'}>
+                <SaleDetail state={state}/>
+              </Route>
+              <Route exact={true} path={'/sales'}>
+                <Sales />
+              </Route>
+            </Route>
+            <Route path="/rentals">
+            <Rentals />
+            </Route>
+            <Route path="/users">
+            <Users />
+            </Route>
+            <Route path="/profile">
+            <Profile />
+            </Route>
+            <Route path="/login">
+            <LoginScreen />
+            </Route>
+            <Route exact={true} path="/about">
+            <About />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+          
         </div>
+      </Router>
     );
 }
 
