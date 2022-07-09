@@ -10,8 +10,12 @@
 
 ##### Instalar paquete [react router](https://reactrouter.com)
 
-`npm install --save react-router-dom`
-__[Librería](https://v5.reactrouter.com/web/guides/quick-start)__
+`npm install --save react-router-dom` / __[Librería](https://v5.reactrouter.com/web/guides/quick-start)__
+Arreglando lo de **AuthRoute**. Se debe poner en ambos lados `{children, ...props}`. Son cosas distintas.
+
+##### Instalar paquete [bootstrap](https://google.com)
+`npm install --save bootstrap`
+`npm install --save react-bootstrap`
 
 ### Instalar paquetes package.json
 
@@ -32,6 +36,7 @@ _Starts the test runner._
 _Removes this tool and copies build dependencies, configuration files and scripts into the app directory. If you do this, you can’t go back!_
 
 ---
+===
 
 #### npm
 

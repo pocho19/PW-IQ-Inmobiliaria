@@ -19,6 +19,7 @@ import NavBar from './components/NavBar/Navbar';
 import LoginScreen from './components/Users/Login';
 import About from "./components/About";
 import SaleDetail from "./components/Sales/SaleDetail";
+import AuthRoute from './components/AuthRoute';
 
 function App() {
   
@@ -61,23 +62,26 @@ function App() {
                 <Sales />
               </Route>
             </Route>
-            <Route path="/rentals">
+            <Route exact={true} path="/rentals">
             <Rentals />
             </Route>
-            <Route path="/users">
+            <Route exact={true} path="/users">
             <Users />
             </Route>
-            <Route path="/profile">
+            <Route exact={true} path="/profile">
             <Profile />
             </Route>
-            <Route path="/login">
+            <Route exact={true} path="/login">
             <LoginScreen />
             </Route>
-            <Route exact={true} path="/about">
+            <AuthRoute exact={true} path="/about">
             <About />
-            </Route>
-            <Route path="/">
+            </AuthRoute>
+            <Route exact={true} path="/">
               <Home />
+            </Route>
+            <Route path="*">
+              <h1>404</h1>
             </Route>
           </Switch>
           

@@ -1,19 +1,26 @@
+import { Route, Redirect } from "react-router-dom";
 
-
-const AuthRoute = ({ component: Component, ...rest }) => {
-  const isLoggedIn = localStorage.getItem('token') !== null;
-  isLoggedIn = false;
+const AuthRoute = ({children, ...props}) => {
+  const isLoggedIn = false;
 
   return (
     <Route
-      {...rest}
-      render={props =>
+        {...props}
+        render={ ({location}) =>
         isLoggedIn ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/login" />
-        )
-      }
+            children
+            ) : (
+            <Redirect 
+                to={{
+                    pathname: "/login",
+                    state: { from: location }
+                }} 
+            />
+            )
+        }
     />
   );
 }
+export default AuthRoute;
+
+
