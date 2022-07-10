@@ -67,3 +67,11 @@ models.py
 ``
 ``
 ``
+
+
+
+---
+### SETEINGS PyCharm:
+---
+![1657424000513](image/comandos_django/1657424000513.png)
+![1657423869180](image/comandos_django/1657423869180.png)
