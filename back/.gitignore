@@ -1,2 +1,4 @@
 # dependencies
 /.idea
+*.pyc
+# *.sqlite3

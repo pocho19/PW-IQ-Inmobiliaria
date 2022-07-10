@@ -6,6 +6,8 @@ Generar pipfile para administrar los paquetes del entorno de desarrollo:
 `pipenv shell`
 Dentro de Pipfile se puede agregar los paquetes que se quieran utilizar:
 `[packages]`
+instalar los paquetes:
+`pipenv install`
 
 
 ##### Django
@@ -14,20 +16,40 @@ Dentro de Pipfile se puede agregar los paquetes que se quieran utilizar:
 `pipenv install djangorestframework`
 ##### Swagger UI
 `pipenv install drf-yasg`
+### SimpleJWT:
+`pipenv install djangorestframework-simplejwt`
 
 
 #### Crear proyecto Django:
 `django-admin startproject back .`
 
+#### Generar el modulo de la aplicacion:
 `django-admin startapp api`
 
 Agregar api al proyecto (backend/settings.py):
 ```
 INSTALLED_APPS = [
     ...
-    'api'
+    'rest_framework',
+    'drf-yasg',
+    'rest_framework_simplejwt',
+    'api',
+    ...
 ]
 ```
+Agregar JWT al proyecto (backend/settings.py):
+```
+REST_FRAMEWORK = {
+    ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        ...
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    ...
+}
+```
+
+
 
 ## Correr proyecto Django:
 `python manage.py runserver`
@@ -59,8 +81,6 @@ models.py
 
 
 
-
-``
 ``
 ``
 ``

@@ -20,3 +20,22 @@ Recibir un json a un objeto mediante una request http
 Serializer
 lo usa la api para transformar un objeto a un json
 
+
+
+[Documentacion SimpleJWT:](
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/)
+Token de autenticacion:
+[https://django-rest-framework-simplejwt.readthedocs.io/en/latest/tokens.html](
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/tokens.html)
+
+
+
+
+migrations:
+cambios en la base de datos
+
+views:
+rutas / endpoints / metodos de la api rest 
+
+
+

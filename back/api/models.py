@@ -2,6 +2,7 @@ from django.db import models
 
 
 # Create your models here.
+#  id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False,verbose_name='ID')
 
 class State(models.Model):
     name = models.CharField(max_length=50)
