@@ -1,11 +1,13 @@
-import generics as generics
-from django.shortcuts import render
+# import generics as generics from django.shortcuts import render
 
 # Create your views here.
 from rest_framework import viewsets, generics
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 
 from api.models import State
-from api.serializers import StateSerializer, RegisterSerializer
+from api.serializers import StateSerializer, RegisterSerializer, MeSerializer
 
 
 class StateViewSet(viewsets.ModelViewSet):
@@ -26,4 +28,11 @@ class RentalsViewSet(viewsets.ModelViewSet):
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
-    # no hace falta queryset porque es un POST
+    # queryset is not needed because it is a POST
+
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def me(request):
+    print(MeSerializer(request.user).data)  # request.user
+    return Response(MeSerializer(request.user).data, 200)

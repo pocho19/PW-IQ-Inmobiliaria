@@ -24,3 +24,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             is_superuser=validated_data['is_superuser']
         )
         return user
+
+
+class MeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ["username", "id", "is_superuser"]

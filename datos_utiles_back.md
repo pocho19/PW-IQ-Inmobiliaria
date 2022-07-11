@@ -34,8 +34,20 @@ https://django-rest-framework-simplejwt.readthedocs.io/en/latest/tokens.html)
 migrations:
 cambios en la base de datos
 
+makemirations:
+crear migraciones / cambios en la base de datos
+
+migrate:
+ejecutar migraciones
+
 views:
-rutas / endpoints / metodos de la api rest 
+rutas / endpoints / metodos de la api rest, que responden a una request http y usan serializadores para transformar un objeto a un json y viceversa
+
+models:
+clases de la base de datos, representan una tabla en la base de datos.
+
+serializers:
+clases que transforman un objeto a un json y viceversa
 
 
 
