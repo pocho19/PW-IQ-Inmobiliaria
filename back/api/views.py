@@ -14,6 +14,14 @@ class StateViewSet(viewsets.ModelViewSet):
     serializer_class = StateSerializer
     # queryset = State.objects.filter(price__gt)(name__contains=)(location__exact=)
     queryset = State.objects.all()
+    # PERMISSIONS
+    # permission_classes = [IsAuthenticated]  # for all http request
+    # def get_permissions(self):  # Only for POST
+    #     if self.action == 'create':
+    #         self.permission_classes = [IsAuthenticated]
+    #     else:
+    #         self.permission_classes = []
+    #     return super(StateViewSet, self).get_permissions()
 
 
 class SalesViewSet(viewsets.ModelViewSet):

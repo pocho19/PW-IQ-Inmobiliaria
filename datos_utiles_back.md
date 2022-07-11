@@ -40,14 +40,28 @@ crear migraciones / cambios en la base de datos
 migrate:
 ejecutar migraciones
 
-views:
+CAPAS:
+
+- views:
 rutas / endpoints / metodos de la api rest, que responden a una request http y usan serializadores para transformar un objeto a un json y viceversa
 
-models:
-clases de la base de datos, representan una tabla en la base de datos.
-
-serializers:
+- serializers:
 clases que transforman un objeto a un json y viceversa
 
+- models:
+clases de la base de datos, representan una tabla en la base de datos.
 
 
+
+#### Alterar comportaminento de las capas:
+
+```
+class CourseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Course
+        fields = ('id', 'name', 'description')
+    def create(self, validated_data):
+        course = super(CourseSerializer, self).create(validated_data)
+        # logica a ejecutar cuando se crea un nuevo objeto
+        return course
+```
