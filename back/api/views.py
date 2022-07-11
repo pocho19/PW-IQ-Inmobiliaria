@@ -14,6 +14,7 @@ class StateViewSet(viewsets.ModelViewSet):
     serializer_class = StateSerializer
     # queryset = State.objects.filter(price__gt)(name__contains=)(location__exact=)
     queryset = State.objects.all()
+
     # PERMISSIONS
     # permission_classes = [IsAuthenticated]  # for all http request
     # def get_permissions(self):  # Only for POST
@@ -22,6 +23,14 @@ class StateViewSet(viewsets.ModelViewSet):
     #     else:
     #         self.permission_classes = []
     #     return super(StateViewSet, self).get_permissions()
+
+    # FILTER FROM QUERY PARAMS FROM GET ?param
+    # def get_queryset(self):
+    #     queryset = self.queryset
+    #     name = self.request.query_params.get('name')
+    #     if name is not None:
+    #         queryset = queryset.filter(name=name)
+    #     return queryset
 
 
 class SalesViewSet(viewsets.ModelViewSet):
@@ -44,3 +53,8 @@ class RegisterView(generics.CreateAPIView):
 def me(request):
     print(MeSerializer(request.user).data)  # request.user
     return Response(MeSerializer(request.user).data, 200)
+
+
+# class ActivityViewSet(viewsets.ModelViewSet):
+#     serializer_class = ActivitySerializer
+#     queryset = Activity.objects.all()

@@ -8,6 +8,7 @@ router = routers.DefaultRouter()
 router.register(r'states', StateViewSet)
 router.register(r'states_sales', SalesViewSet)
 router.register(r'states_rentals', RentalsViewSet)
+# router.register(r'activity', ActivityViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

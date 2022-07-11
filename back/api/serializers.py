@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+# from rest_framework.exceptions import ValidationError
 
 from api.models import State
 
@@ -9,7 +10,8 @@ class StateSerializer(serializers.ModelSerializer):
         model = State
         fields = "__all__"
 
-    # COMPORTAMIENTO EVALUADO ANTES DE CREAR EL OBJETO
+    # COMPARTMENT
+    # BEHAVIOR EVALUATED BEFORE CREATING THE OBJECT
     # def create(self, validated_data):
     #     state = super(StateSerializer, self).create(validated_data)
     #     State.objects.create(
@@ -27,7 +29,13 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "password", "is_superuser", "first_name", "last_name"]  # "__all__"
+        fields = [
+            "username",
+            "password",
+            "is_superuser",
+            "first_name",
+            "last_name"
+        ]  # "__all__"
 
     def create(self, validated_data):  # over raid password to encrypt
         user = get_user_model().objects.create_user(
@@ -39,8 +47,27 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
+    # validate username field
+    # def validate_username(self, username):
+    #     if username == 'no':
+    #         raise ValidationError("username not valid")
+    #     return username
+
 
 class MeSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
         fields = ["username", "id", "is_superuser"]
+
+
+# class ActivitySerializer(serializers.ModelSerializer):
+#     state = StateSerializer()   # in the 'state' field replace the 'id' with the 'state' object
+#     state_serialized = StateSerializer(source='state')  # add another field 'state_serialized' with the 'state' object
+#     custom_field = serializers.SerializerMethodField()  # add a custom field --> get_custom_field()
+#
+#     class Meta:
+#         model = Activity
+#         fields = ["___all__"]
+#
+#     def get_custom_field(self,activity):
+#         return activity.name + ' - mod'

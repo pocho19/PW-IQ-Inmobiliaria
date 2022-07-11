@@ -24,3 +24,10 @@ class State(models.Model):
     bathrooms = models.IntegerField(default=1)
     garage = models.IntegerField(default=0)
     date = models.DateTimeField(default='2021-12-02')
+
+
+# class Activity(models.Model):
+#     name = models.CharField(max_length=20)
+#     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True)
+    # on_delete=models.CASCADE --> tambien se borra la activity
+    # on_delete=models.SET_NULL, null=True --> solo transforma el campo state en null
