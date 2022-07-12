@@ -11,17 +11,17 @@ import { httpGet, httpPost } from '../../utils/httpFunctions';
 //import default_img from './../../assets/images/default_house.png';
 //import default_img from './../assests/images/default_house.png';
 ///assests/images/default_house.png app-iq\src\assests\images\default_house.png
-const Sales = ({}) => {
+const Rentals = ({}) => {
 
     /// http requests
     const [states, setStateBack] = useState([]);
 
     const fetchStates = () => {
-        httpGet('api/states/')
+        httpGet('api/states_rentals/')
             .then(res => setStateBack(res.data) )
     }
     const createSales = (state) => {
-        httpPost('api/states', state)
+        httpPost('api/states_rentals', state)
             .then(fetchStates)
     }
     useEffect(fetchStates, []) // dependencias vacias, solo se ejecuta una vez
@@ -55,7 +55,7 @@ const Sales = ({}) => {
             <div className="main-div">
                 <h2 className="main-title">Garcia & Casanova Inmobiliaria</h2>
                 <p className="main-description">
-                Listado de propiedades a la venta
+                Listado de propiedades en alquiler
                 </p>
             </div>
             <div className="main-div">
@@ -89,4 +89,4 @@ const Sales = ({}) => {
         </div>
     );
 }
-export default Sales;
+export default Rentals;

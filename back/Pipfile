@@ -11,6 +11,7 @@ djangorestframework = "*"
 drf-yasg = "*"
 djangorestframework-simplejwt = "*"
 generics = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.9"

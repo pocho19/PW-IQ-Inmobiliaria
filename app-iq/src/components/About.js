@@ -1,19 +1,20 @@
 
 const About = () => {
   return (
-    <div className="about">
-      <h1>About</h1>
+    <div className="about p-5">
+      <h1>Sobre nosotros</h1>
       <p>
-        This is a simple React app that I built to learn React. I built it
-        to learn React and to learn how to use the React Router library.
+        Somos una empresa de Servivios Inmobiliarios nueva que se encuentra en la ciudad de Rosario,
+        Argentina.
+
       </p>
       <p>
-        I used the following libraries:
+        Contactenos para mas informacion:
         <ul>
-          <li>React</li>
-          <li>React Router</li>
-          <li>React Bootstrap</li>
-          <li>React Fontawesome</li>
+          <li>Correo</li>
+          <li>Instagram</li>
+          <li>Facebook</li>
+          <li>Whastapp</li>
         </ul>
       </p>
     </div>

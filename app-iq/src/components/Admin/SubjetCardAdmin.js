@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 
-function SubjetCard({state}) {
+function SubjetCardAdmin({state}) {
   return (
     <div className="card-conteiner" >
         <div className="card">
@@ -22,4 +22,4 @@ function SubjetCard({state}) {
     </div>
     );
 }
-export default SubjetCard;
+export default SubjetCardAdmin;

@@ -80,8 +80,8 @@ models.py
 
 
 
-
-``
+CORS
+`pipenv install django-cors-headers`
 ``
 ``
 ``

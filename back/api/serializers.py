@@ -57,7 +57,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class MeSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
-        fields = ["username", "id", "is_superuser"]
+        fields = ["username", "id", "is_superuser", 'last_name', 'first_name', 'email']
 
 
 # class ActivitySerializer(serializers.ModelSerializer):

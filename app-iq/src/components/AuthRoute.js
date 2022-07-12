@@ -1,13 +1,13 @@
 import { Route, Redirect } from "react-router-dom";
 
 const AuthRoute = ({children, ...props}) => {
-  const isLoggedIn = true;
+  const isLog = localStorage.getItem("token");
 
   return (
     <Route
         {...props}
         render={ ({location}) =>
-        isLoggedIn ? (
+        isLog ? (
             children
             ) : (
             <Redirect 

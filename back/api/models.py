@@ -9,6 +9,8 @@ class State(models.Model):
     address = models.CharField(max_length=50, default='Ejemplo 123')
     location = models.CharField(max_length=25, default='Rosario')
     postCode = models.IntegerField(default=2000)
+    type = models.CharField(max_length=25, default='Otra')
+    available = models.BooleanField(default=True)
     sale = models.BooleanField(default=True)
     price = models.IntegerField(default=0)
     rent = models.BooleanField(default=False)

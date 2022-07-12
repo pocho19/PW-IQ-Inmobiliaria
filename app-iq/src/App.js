@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,13 +13,17 @@ import {
 import Sales from './components/Sales/Sales';
 import Profile from './components/Users/Profile';
 import Users from './components/Users/Users';
-import Rentals from './components/Rentals';
+import Rentals from './components/Rentals/Rentals';
 import Home from './components/Home';
 import NavBar from './components/NavBar/Navbar';
 import LoginScreen from './components/Users/Login';
 import About from "./components/About";
 import SaleDetail from "./components/Sales/SaleDetail";
 import AuthRoute from './components/AuthRoute';
+import States from "./components/Admin/States";
+import RegisterScreen from "./components/Users/Register";
+
+var loginGlobal = false;
 
 function App() {
   const descriptionEx = "Texto Ejemplo de descripción. Ubicada en el barrio Antartida Argentina ( fisherton sur) a metros de Av. Mendoza a la altura del 7900.Patio delantero en el ingreso parquizado , cochera pasante. La casa se desarrolla practicamente toda en planta baja. Living con entrepiso de madera, cocina comedor, lavadero independiente y dos dormitorios orientados al norte con ventilacion hacia el jardin del inmueble.";
@@ -32,61 +36,56 @@ function App() {
     { id:4, location:'Rosario', description:descriptionEx, name: 'Depto B', price: 60000, img: 'IMAGEN', type: 'Departamento' },
     { id:5, location:'Rosario', description:descriptionEx, name: 'Depto C', price: 50000, img: 'IMAGEN', type: 'Departamento' },
     { id:6, location:'Rosario', description:descriptionEx, name: 'Terreno', price: 25000, img: 'IMAGEN', type: 'Terreno' },
-];
+  ];
+  
   return (<Router>
         <div>
-          {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Inicio</Link>
-              </li>
-              <li>
-                <Link to="/sales">Ventas</Link>
-                </li>
-                <li>
-                <Link to="/rentals">Alquiler</Link>
-                </li>
-                <li>
-                <Link to="/users">Usuarios</Link>
-                </li>
-                <li>  
-                <Link to="/profile">Perfil</Link>
-                </li>
-                <li>
-                <Link to="/about">Nosotros</Link>
-                </li>
-            </ul>
-          </nav> */}
-          <NavBar />
-
+            {/* <NavBar/> */}
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
-            <Route exact={true} path="/users">
-            <Users />
-            </Route>
-            <Route exact={true} path="/profile">
-            <Profile />
-            </Route>
-            <Route exact={true} path="/login">
-            <LoginScreen />
-            </Route>
-            <AuthRoute exact={true} path="/about">
-            <About />
+            <AuthRoute exact={true} path="/admin/users">
+            <NavBar/>
+              <Users />
             </AuthRoute>
+            <AuthRoute exact={true} path="/admin/states">
+            <NavBar/>
+              <States />
+            </AuthRoute>
+            <AuthRoute exact={true} path="/profile">
+            <NavBar/>
+              <Profile />
+            </AuthRoute>
+            <Route exact={true} path="/login">
+            <NavBar/>
+              <LoginScreen />
+            </Route>
+            <Route exact={true} path="/register">
+            <NavBar/>
+              <RegisterScreen />
+            </Route>
+            <Route exact={true} path="/about">
+            <NavBar/>
+            <About />
+            </Route>
             <Route exact={true} path={'/sales/detail/:id'}>
-              <SaleDetail states={states}/>
+            <NavBar/>
+              <SaleDetail/>
             </Route>
             <Route exact={true} path={'/sales'}>
-              <Sales states={states}/>
+            <NavBar/>
+              <Sales/>
             </Route>
             <Route exact={true} path="/rentals">
+            <NavBar/>
             <Rentals />
             </Route>
             <Route exact={true} path="/">
+            <NavBar/>
               <Home />
             </Route>
             <Route path="*">
+            <NavBar/>
               <h1>404</h1>
             </Route>
           </Switch>

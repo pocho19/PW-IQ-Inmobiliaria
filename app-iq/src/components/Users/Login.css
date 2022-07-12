@@ -1,8 +1,9 @@
 .login-screen {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     display: flex;
     flex-direction: center;
     justify-content: center;
+    padding-top: 50px;
 }
 .login-screen2 {
     display: flex;
@@ -22,7 +23,7 @@
   flex-direction: column;
   justify-content: center;
   width: 50%;
-  height: 500px;
+  /* height: 500px; */
 }
 .login-conteiner h1 {
   font-size: 30px;
@@ -34,10 +35,10 @@
     justify-content: center;
     align-items: center;
 }
-.form-label{
-}
+/* .form-label{
+} */
 .form-control{
-    width: 400px;
+    width: 300px;
     height: 30px;
     border-radius: 15px;
     margin-bottom: 20px;
